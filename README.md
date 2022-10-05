@@ -33,4 +33,5 @@ El proyecto se desarrollo con los siguientes pasos, pueden seguirse de forma sim
 9. Crear las interfaces correspondientes a cada Servicio (Se recomienda revisar documentación sobre Inyección de dependencias en ASP.NET).
 10. Registrar los servicios en la clase startup para poder inyectarlos en las clases que los requieran. Este paso es impotante ya que sin este registro las clases no podran hacer uso de los metodos de las clases que se estan inyectando.
 11. Crear clases DTOs para la creación o actualización de las entidades de la base de datos.
+
     **Nota: Consultar información sobre el uso de Data Transfer Objects (DTO)**
