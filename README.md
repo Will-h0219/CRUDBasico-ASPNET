@@ -39,4 +39,4 @@ El proyecto se desarrollo con los siguientes pasos, pueden seguirse de forma sim
     - Inyectar el servicio necesario en el constructor e inicializarlo como un campo.
     - Crear los metodos Http necesarios para un CRUD (Get - Post - Put - Delete)
 
-**Nota: Agregar configuración en la clase startup > ConfigureServices ** ```services.AddControllers()``` **en caso de tener error de referencias circulares. Este error es comun al tratar de traer los objectos directamente de la base de datos incluyendo listas o referencias a objetos de otras tablas, este error se puede prevenir con el uso de DTOs y AutoMapper.**
+**Nota: Agregar configuración en la clase startup > ConfigureServices** ```services.AddControllers()``` **en caso de tener error de referencias circulares. Este error es comun al tratar de traer los objectos directamente de la base de datos incluyendo listas o referencias a objetos de otras tablas, este error se puede prevenir con el uso de DTOs y AutoMapper.**
