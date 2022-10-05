@@ -55,7 +55,7 @@ El proyecto se desarrollo con los siguientes pasos, pueden seguirse de forma sim
     - Inyectar el servicio necesario en el constructor e inicializarlo como un campo.
     - Crear los metodos Http necesarios para un CRUD (Get - Post - Put - Delete)
 
-**Nota: Agregar configuración en la clase startup > ConfigureServices en caso de tener error de referencias circulares.**
+**Nota: Agregar configuración en la clase startup > ConfigureServices en caso de tener error de referencias circulares:**
 
 ```
 public void ConfigureServices(IServiceCollection services)
