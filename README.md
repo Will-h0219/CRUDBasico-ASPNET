@@ -39,4 +39,10 @@ El proyecto se desarrollo con los siguientes pasos, pueden seguirse de forma sim
     - Inyectar el servicio necesario en el constructor e inicializarlo como un campo.
     - Crear los metodos Http necesarios para un CRUD (Get - Post - Put - Delete)
 
-**Nota: Agregar configuración en la clase startup > ConfigureServices** ```services.AddControllers()``` **en caso de tener error de referencias circulares. Este error es comun al tratar de traer los objectos directamente de la base de datos incluyendo listas o referencias a objetos de otras tablas, este error se puede prevenir con el uso de DTOs y AutoMapper.**
+**Nota: Agregar configuración en la clase startup > ConfigureServices >** ```services.AddControllers()``` **en caso de tener error de referencias circulares. Este error es comun al tratar de traer los objectos directamente de la base de datos incluyendo listas o referencias a objetos de otras tablas, este error se puede prevenir con el uso de DTOs y AutoMapper.**
+
+## Pasos para recrear la base de datos
+La forma más sencilla para recrear la base de datos es la siguiente:
+1. Una vez clonado el repositorio y abierto en Visual Studio, Solution Explorer > Click derecho en la carpeta "Migrations" y "Delete" para eliminar la carpeta Migrations.
+2. Verificar el nombre de la base de datos a crear. El nombre se puede cambiar desde el archivo ```appsettings.Development.json``` el cual se puede encontrar expandiendo el archivo ```appsettings.json```.
+3. Verificar que no exista una base de datos previa con el mismo nombre. Para esto en Visual Studio, en la barra superior de herramientas click en "View" > SQL Server Object Explorer > (localdb)\MSSQLLocalDB > Databases. En el listado no debe existir una base de datos con elmismo nombre que la que vamos a usar.
