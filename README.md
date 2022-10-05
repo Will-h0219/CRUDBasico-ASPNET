@@ -17,3 +17,13 @@ El proyecto se desarrollo con los siguientes pasos, pueden seguirse de forma sim
    - Microsoft.EntityFrameworkCore.Tools
 
    Los paquetes se instalan a traves del NuGet PackageManager: Solution Explorer > Click derecho en CRUDBasico > Manage NuGet Packages...
+4. La base de datos se crea a partir del codigo (Code First) para utilizar Entity Framework Core, tambien se podria migrar de una base de datos existente. Se utiliza esta aproximación ya que es más sencilla.
+   - Crear la clase AppDbContext la cual tendra el llamado de los modelos que conformaran las tablas de la base de datos.
+   - Crear los modelos necesarios para la base de datos. Consultar la documentación de EF Core para más información sobre las relaciones (uno a uno, uno a muchos, mucho sa muchos)
+5. Definir en AppSetting.Development.json la seccion "ConnectionString" para poder conectar con la base de datos
+   - Initial Catalog contiene el nombre de la base de datos
+6. Registrar la clase AppDbContext en la clase startup
+7. Por medio de la consola (Package Manager Console) escribir los comandos que crearan la base de datos
+   - ```Add-Migration DESCRIPCION_CORTA_SIN_COMILLAS_NI_ESPACION```
+   - ```Update-Database```
+   **Nota: Cada que se realice una modificación o se cree una clase que requiera de una tabla en la base de datos se vuelven a correr los comandos para actualizar la base de datos. Cada "Migration" crea un archivo en la carpeta "Migrations"**
