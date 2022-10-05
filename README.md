@@ -9,6 +9,22 @@ En este documento se podrán ver los pasos realizados para crear el proyecto, as
 
 **Nota: EL proyecto fue desarrollado con .net 5.0 el cual ya no tiene soporte, para recrear el proyecto en .net6 se requiere Visual Studio 2022. Se recomienda consultar la documentación oficial sobre los cambios en el framework**
 
+**Nota 2: SQL Server Management Studio se usara unicamente para crear backups de la base de datos y restaurar la misma. En caso de no querer hacer estas acciones, esta instalación puede ser omitida.**
+
+## Pasos para restaurar la base de datos
+En caso de querer utilizar una base de datos con un equipo y un grupo de jugadores para probar los endpoints de consulta, se puede restaurar la base de datos con este [backup](https://mega.nz/file/5WZEnKDQ#xgclYyYV-sUvT5uzdi_jDceaDZB_vFhzPWZSyaFVZlk), recordar la carpeta en la que se guarda.
+La forma más sencilla para recrear la base de datos es la siguiente:
+1. **Opcional** Una vez clonado el repositorio y abierto en Visual Studio, Solution Explorer > Click derecho en la carpeta "Migrations" y "Delete" para eliminar la carpeta Migrations.
+2. Verificar el nombre de la base de datos a restaurar. El nombre se puede cambiar desde el archivo ```appsettings.Development.json``` el cual se puede encontrar expandiendo el archivo ```appsettings.json```. En este caso el nombre debe ser "EquiposDB".
+3. Verificar que no exista una base de datos previa con el mismo nombre. Para esto en Visual Studio, en la barra superior de herramientas click en "View" > SQL Server Object Explorer > (localdb)\MSSQLLocalDB > Databases. En el listado no debe existir una base de datos con el mismo nombre que la que vamos a usar.
+4. Para restaurar la base de datos iniciar SSMS, el server name debe ser: ```(localdb)\MSSQLLocalDB``` y en Authentication seleccionar "Windows Authentication", dar click en "Connect".
+6. Click derecho en Databases > Restore Database...
+7. En source seleccionar "Device" y dar click en los 3 puntos, click en Add y buscar la carpeta donde se guardo el archivo .bak para poder seleccionarlo.
+8. Dar click en Ok para cerrar el modal "Select backup devices" y luego click en Ok para restaurar la base de datos.
+9. Esperar a que se restaure la base de datos. Una vez restaurada se puede correr el proyecto el cual podra acceder a la base de datos.
+
+**Nota: Para más información acerca de backup y restauración de base de datos consultar la [documentación](https://learn.microsoft.com/en-us/sql/relational-databases/backup-restore/quickstart-backup-restore-database?view=sql-server-ver16).**
+
 ## Pasos para recrear el proyecto
 El proyecto se desarrollo con los siguientes pasos, pueden seguirse de forma similar para .net6 teniendo en cuenta las diferencias entre las versiones del framework.
 1. Crear el nuevo proyecto como un web api. Para más información consultar la [documentación oficial](https://learn.microsoft.com/es-es/aspnet/core/tutorials/first-web-api?view=aspnetcore-6.0&tabs=visual-studio)
@@ -40,9 +56,3 @@ El proyecto se desarrollo con los siguientes pasos, pueden seguirse de forma sim
     - Crear los metodos Http necesarios para un CRUD (Get - Post - Put - Delete)
 
 **Nota: Agregar configuración en la clase startup > ConfigureServices >** ```services.AddControllers()``` **en caso de tener error de referencias circulares. Este error es comun al tratar de traer los objectos directamente de la base de datos incluyendo listas o referencias a objetos de otras tablas, este error se puede prevenir con el uso de DTOs y AutoMapper.**
-
-## Pasos para recrear la base de datos
-La forma más sencilla para recrear la base de datos es la siguiente:
-1. Una vez clonado el repositorio y abierto en Visual Studio, Solution Explorer > Click derecho en la carpeta "Migrations" y "Delete" para eliminar la carpeta Migrations.
-2. Verificar el nombre de la base de datos a crear. El nombre se puede cambiar desde el archivo ```appsettings.Development.json``` el cual se puede encontrar expandiendo el archivo ```appsettings.json```.
-3. Verificar que no exista una base de datos previa con el mismo nombre. Para esto en Visual Studio, en la barra superior de herramientas click en "View" > SQL Server Object Explorer > (localdb)\MSSQLLocalDB > Databases. En el listado no debe existir una base de datos con elmismo nombre que la que vamos a usar.
