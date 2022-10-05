@@ -56,5 +56,14 @@ El proyecto se desarrollo con los siguientes pasos, pueden seguirse de forma sim
     - Crear los metodos Http necesarios para un CRUD (Get - Post - Put - Delete)
 
 **Nota: Agregar configuración en la clase startup > ConfigureServices en caso de tener error de referencias circulares.**
-```services.AddControllers().AddJsonOptions(opciones => opciones.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);```
+
+```
+public void ConfigureServices(IServiceCollection services)
+{
+   services.AddControllers().AddJsonOptions(opciones => opciones.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+   
+   ...
+}
+```
+
 **Este error es comun al tratar de traer los objectos directamente de la base de datos incluyendo listas o referencias a objetos de otras tablas, este error se puede prevenir con el uso de DTOs y AutoMapper.**
