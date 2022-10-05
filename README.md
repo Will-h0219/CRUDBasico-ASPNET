@@ -14,7 +14,7 @@ En este documento se podrán ver los pasos realizados para crear el proyecto, as
 ## Pasos para restaurar la base de datos
 En caso de querer utilizar una base de datos con un equipo y un grupo de jugadores para probar los endpoints de consulta, se puede restaurar la base de datos con este [backup](https://mega.nz/file/5WZEnKDQ#xgclYyYV-sUvT5uzdi_jDceaDZB_vFhzPWZSyaFVZlk), recordar la carpeta en la que se guarda.
 La forma más sencilla para recrear la base de datos es la siguiente:
-1. **Opcional** Una vez clonado el repositorio y abierto en Visual Studio, Solution Explorer > Click derecho en la carpeta "Migrations" y "Delete" para eliminar la carpeta Migrations.
+1. Una vez clonado el repositorio y abierto en Visual Studio, Solution Explorer > Click derecho en la carpeta "Migrations" y "Delete" para eliminar la carpeta Migrations.
 2. Verificar el nombre de la base de datos a restaurar. El nombre se puede cambiar desde el archivo ```appsettings.Development.json``` el cual se puede encontrar expandiendo el archivo ```appsettings.json```. En este caso el nombre debe ser "EquiposDB".
 3. Verificar que no exista una base de datos previa con el mismo nombre. Para esto en Visual Studio, en la barra superior de herramientas click en "View" > SQL Server Object Explorer > (localdb)\MSSQLLocalDB > Databases. En el listado no debe existir una base de datos con el mismo nombre que la que vamos a usar.
 4. Para restaurar la base de datos iniciar SSMS, el server name debe ser: ```(localdb)\MSSQLLocalDB``` y en Authentication seleccionar "Windows Authentication", dar click en "Connect".
@@ -24,6 +24,14 @@ La forma más sencilla para recrear la base de datos es la siguiente:
 9. Esperar a que se restaure la base de datos. Una vez restaurada se puede correr el proyecto el cual podra acceder a la base de datos.
 
 **Nota: Para más información acerca de backup y restauración de base de datos consultar la [documentación](https://learn.microsoft.com/en-us/sql/relational-databases/backup-restore/quickstart-backup-restore-database?view=sql-server-ver16).**
+
+En caso de no querer restaurar la base de datos se puede hacer lo siguiente para crear la base de datos desde 0:
+Repetir los pasos 1 a 3.
+En la consola (Package Manager Console) escribir los siguientes comandos:
+   - ```Add-Migration Initial```
+   - ```Update-Database```
+   
+Esto creara una migración con la configuración establecida en la clase ```AppDbContext```.
 
 ## Pasos para recrear el proyecto
 El proyecto se desarrollo con los siguientes pasos, pueden seguirse de forma similar para .net6 teniendo en cuenta las diferencias entre las versiones del framework.
