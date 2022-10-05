@@ -27,6 +27,7 @@ La forma más sencilla para recrear la base de datos es la siguiente:
 
 En caso de no querer restaurar la base de datos se puede hacer lo siguiente para crear la base de datos desde 0:
 Repetir los pasos 1 a 3.
+
 En la consola (Package Manager Console) escribir los siguientes comandos:
    - ```Add-Migration Initial```
    - ```Update-Database```
