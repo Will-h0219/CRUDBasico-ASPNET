@@ -6,6 +6,7 @@ En este documento se podrán ver los pasos realizados para crear el proyecto, as
 - Visual Studio Community 2019
 - Microsoft SQL Server Management Studio - [SSMS](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
 - Postman - Opcional para probar los endpoints
+
 **Nota: EL proyecto fue desarrollado con .net 5.0 el cual ya no tiene soporte, para recrear el proyecto en .net6 se requiere Visual Studio 2022. Se recomienda consultar la documentación oficial sobre los cambios en el framework**
 
 ## Pasos para recrear el proyecto
@@ -26,4 +27,5 @@ El proyecto se desarrollo con los siguientes pasos, pueden seguirse de forma sim
 7. Por medio de la consola (Package Manager Console) escribir los comandos que crearan la base de datos
    - ```Add-Migration DESCRIPCION_CORTA_SIN_COMILLAS_NI_ESPACION```
    - ```Update-Database```
+   
    **Nota: Cada que se realice una modificación o se cree una clase que requiera de una tabla en la base de datos se vuelven a correr los comandos para actualizar la base de datos. Cada "Migration" crea un archivo en la carpeta "Migrations"**
