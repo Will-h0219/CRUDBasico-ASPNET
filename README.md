@@ -16,8 +16,13 @@ En caso de querer utilizar una base de datos con un equipo y un grupo de jugador
 La forma más sencilla para recrear la base de datos es la siguiente:
 1. Una vez clonado el repositorio y abierto en Visual Studio, Solution Explorer > Click derecho en la carpeta "Migrations" y "Delete" para eliminar la carpeta Migrations.
 2. Verificar el nombre de la base de datos a restaurar. El nombre se puede cambiar desde el archivo ```appsettings.Development.json``` el cual se puede encontrar expandiendo el archivo ```appsettings.json```. En este caso el nombre debe ser "EquiposDB".
-3. Verificar que no exista una base de datos previa con el mismo nombre. Para esto en Visual Studio, en la barra superior de herramientas click en "View" > SQL Server Object Explorer > (localdb)\MSSQLLocalDB > Databases. En el listado no debe existir una base de datos con el mismo nombre que la que vamos a usar.
-4. Para restaurar la base de datos iniciar SSMS, el server name debe ser: ```(localdb)\MSSQLLocalDB``` y en Authentication seleccionar "Windows Authentication", dar click en "Connect".
+   ```
+   "ConnectionStrings": {
+    "DefaultConnection": "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=EquiposDB;Integrated Security=True"
+   }
+   ```
+4. Verificar que no exista una base de datos previa con el mismo nombre. Para esto en Visual Studio, en la barra superior de herramientas click en "View" > SQL Server Object Explorer > (localdb)\MSSQLLocalDB > Databases. En el listado no debe existir una base de datos con el mismo nombre que la que vamos a usar.
+5. Para restaurar la base de datos iniciar SSMS, el server name debe ser: ```(localdb)\MSSQLLocalDB``` y en Authentication seleccionar "Windows Authentication", dar click en "Connect".
 6. Click derecho en Databases > Restore Database...
 7. En source seleccionar "Device" y dar click en los 3 puntos, click en Add y buscar la carpeta donde se guardo el archivo .bak para poder seleccionarlo.
 8. Dar click en Ok para cerrar el modal "Select backup devices" y luego click en Ok para restaurar la base de datos.
