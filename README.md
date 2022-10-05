@@ -20,7 +20,7 @@ El proyecto se desarrollo con los siguientes pasos, pueden seguirse de forma sim
    Los paquetes se instalan a traves del NuGet PackageManager: Solution Explorer > Click derecho en CRUDBasico > Manage NuGet Packages...
 4. La base de datos se crea a partir del codigo (Code First) para utilizar Entity Framework Core, tambien se podria migrar de una base de datos existente. Se utiliza esta aproximación ya que es más sencilla.
    - Crear la clase AppDbContext la cual tendra el llamado de los modelos que conformaran las tablas de la base de datos.
-   - Crear los modelos necesarios para la base de datos. Consultar la documentación de EF Core para más información sobre las relaciones (uno a uno, uno a muchos, mucho sa muchos)
+   - Crear los modelos necesarios para la base de datos, en este caso las propiedades de cada clase hacen referencia a las columnas de la tabla en la base de datos a excepción de las propiedades de referencia. Consultar la documentación de EF Core para más información sobre las relaciones (uno a uno, uno a muchos, mucho sa muchos)
 5. Definir en AppSetting.Development.json la seccion "ConnectionString" para poder conectar con la base de datos
    - Initial Catalog contiene el nombre de la base de datos
 6. Registrar la clase AppDbContext en la clase startup
@@ -35,3 +35,8 @@ El proyecto se desarrollo con los siguientes pasos, pueden seguirse de forma sim
 11. Crear clases DTOs para la creación o actualización de las entidades de la base de datos.
 
     **Nota: Consultar información sobre el uso de Data Transfer Objects (DTO)**
+12. Crear los controladores necesarios, usualmente es buena practica crear un controlador para una función especifica, en este caso para una tabla especifica (equipo o jugador)
+    - Inyectar el servicio necesario en el constructor e inicializarlo como un campo.
+    - Crear los metodos Http necesarios para un CRUD (Get - Post - Put - Delete)
+
+**Nota: Agregar configuración en la clase startup > ConfigureServices ** ```services.AddControllers()``` **en caso de tener error de referencias circulares. Este error es comun al tratar de traer los objectos directamente de la base de datos incluyendo listas o referencias a objetos de otras tablas, este error se puede prevenir con el uso de DTOs y AutoMapper.**
