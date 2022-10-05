@@ -15,4 +15,5 @@ El proyecto se desarrollo con los siguientes pasos, pueden seguirse de forma sim
 3. Se instalan los paquetes que nos permitiran trabajar con Sql Server (Se utilizara una base de datos local) y [EntityFramework Core](https://www.entityframeworktutorial.net/efcore/entity-framework-core.aspx)
    - Microsoft.EntityFrameworkCore.SqlServer
    - Microsoft.EntityFrameworkCore.Tools
+
 Los paquetes se instalan a traves del NuGet PackageManager: Solution Explorer > Click derecho en CRUDBasico > Manage NuGet Packages...
