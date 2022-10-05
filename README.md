@@ -1,4 +1,4 @@
-# CRUDBasico-ASPNET
+# CRUDBasico
 En este API se crean las funciones para realizar operaciones básicas CRUD (Create - Read - Update -Delete) en una base de datos utilizando equipos de futbol colombianos. Este proyecto es una base para entender el funcionamiento del framework ASP.NET Core y pueden expandirse las tablas, metodos, etc necesarios; como se menciono, solo es la base para un entendimiento de operaciones basicas y algunas buenas practicas.
 En este documento se podrán ver los pasos realizados para crear el proyecto, así como notas de conceptos a tener en cuenta, al final del mismo se encontrarn los pasos para recrear la base de datos y poder utilizar los endpoints de forma local ya sea con Swagger (herramienta por defecto de ASP.NET) o Postman.
 
