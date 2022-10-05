@@ -29,3 +29,8 @@ El proyecto se desarrollo con los siguientes pasos, pueden seguirse de forma sim
    - ```Update-Database```
    
    **Nota: Cada que se realice una modificación o se cree una clase que requiera de una tabla en la base de datos se vuelven a correr los comandos para actualizar la base de datos. Cada "Migration" crea un archivo en la carpeta "Migrations"**
+8. Crear servicios encargados de manipular la data de la base de datos. EN el proyecto se utiliza la configuración de EF Core para acceder a la data.
+9. Crear las interfaces correspondientes a cada Servicio (Se recomienda revisar documentación sobre Inyección de dependencias en ASP.NET).
+10. Registrar los servicios en la clase startup para poder inyectarlos en las clases que los requieran. Este paso es impotante ya que sin este registro las clases no podran hacer uso de los metodos de las clases que se estan inyectando.
+11. Crear clases DTOs para la creación o actualización de las entidades de la base de datos.
+    **Nota: Consultar información sobre el uso de Data Transfer Objects (DTO)**
